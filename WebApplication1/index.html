@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body ng-app="app">
+
+    <div ng-controller="main as vm">
+        {{ vm.message }}
+
+        <h2 ng-show="vm.user.isAuth">USER IS LOGGED IN</h2>
+
+        <h3>Login</h3>
+        User: <input type="text" ng-model="vm.loginForm.username" /><br />
+        Pass: <input type="text" ng-model="vm.loginForm.password" /><br />
+        <button ng-click="vm.login()">Login</button>
+        <button ng-click="vm.logout()">Logout</button>
+        <button ng-click="vm.rlogin()">Refresh</button>
+        <button ng-click="vm.testapi()">Test API</button>
+        <hr />
+        <!--<ul>
+            <li ng-repeat="role in vm.user.roles">{{role}}</li>
+        </ul>-->
+
+        <hr />
+        {{vm.user.token.length}}
+        <pre>
+{{ vm.user | json }}
+</pre>
+
+        <pre>
+        {{ vm.debug | json }}
+</pre>
+
+    </div>
+
+
+
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-local-storage.min.js"></script>
+    <script src="app.js"></script>
+    <script src="authModule/authModule.js"></script>
+    <script src="authModule/httpAuthInterceptor.js"></script>
+    <script src="authModule/authService.js"></script>
+    <script src="authModule/userService.js"></script>
+    <script src="authModule/httpBuffer.js"></script>
+
+</body>
+</html>
